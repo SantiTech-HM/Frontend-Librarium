@@ -9,12 +9,14 @@ import { MessageService } from 'primeng/api';
 
 
 
+
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [ButtonModule, CardModule, RouterModule],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrl: './home.component.scss',
+ 
 })
 export class HomeComponent {
 

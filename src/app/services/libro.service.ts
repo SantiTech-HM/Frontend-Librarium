@@ -1,4 +1,3 @@
-
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -18,7 +17,7 @@ export class LibroService {
   }
 
   getLibroById(id: number) :Observable<Libro> {
-    return this.http.get<Libro>('${this.apiUrl}/${id}');
+    return this.http.get<Libro>(`${this.apiUrl}/${id}`);
   }
 
   createLibro(libro: Libro, imagen: File) :Observable<Libro> {
@@ -35,12 +34,12 @@ export class LibroService {
   }
 
   deleteLibro(id: number) {
-    return this.http.delete('${this.apiUrl}/${id}' );
+    return this.http.delete(`${this.apiUrl}/${id}`);
   }
   updateImagenLibro(id: number, imagen:File) :Observable<Libro> {
     const formData = new FormData()
     formData.append('file', imagen)
-    return this.http.put<Libro>('${this.apiUrl}/${id}/imagen',formData);
+    return this.http.put<Libro>(`${this.apiUrl}/${id}/imagen`,formData);
   }
 
 }

@@ -1,5 +1,6 @@
 
- <div class="flex flex-column gap-2 ">
+
+<div class="flex flex-column gap-2 ">
 
     <a routerLink="libro-form/new" class="p-button font-bold w-max">
         Crear nuevo libro
@@ -23,7 +24,7 @@
                   [src]="libro.imagen?libro.imagen.imagenUrl:'/assets/defecto.png'">
                 </ng-template>
                 <p>
-                    genero {{libro.genero}}
+                    Genero: {{libro.genero}}
                 </p>
             
                 <p>
@@ -35,8 +36,10 @@
                 </p>
                 <ng-template pTemplate="footer">
                     <div class="flex gap-1 mt-1">
-                        <p-button  (onClick)="deleteLibro(libro.id)" label="Borrar" severity="secondary" />
-                        <a routerLink="libro-form/{{libro.id}}" class="p-button font-bold">
+                      
+                        <p-button (click)="deleteLibro(libro.id)" label="Borrar" severity="danger" />
+                      
+                        <a [routerLink]="['/libro-form', libro.id]" class="p-button font-bold">
                             Editar
                         </a>
                     </div>
@@ -52,44 +55,3 @@
 
 </div> 
 
-<!-- <div class="flex flex-column gap-2">
-    <a routerLink="book-form/new" class="p-button font-bold w-max">
-      Crear nuevo libro
-    </a>
-    <div class="flex gap-4 flex-wrap">
-      @for (libro of libros; track libro.id) {
-      <p-card
-        header="{{ libro.titulo }}"
-        subheader="{{ libro.autor }}"
-        [style]="{ width: '360px' }"
-      >
-        <ng-template pTemplate="header">
-          <img
-            class="w-full img"
-            height="220px"
-            alt="Card"
-            [src]="libro.imagen?libro.imagen.imagenUrl:'/assets/imagen.png'"
-          />
-        </ng-template>
-        <p>Páginas: {{ libro.paginas }}</p>
-        <p>Precio: {{ libro.precio }}$</p>
-        <ng-template pTemplate="footer">
-          <div class="flex gap-1 mt-1">
-            <p-button
-              (onClick)="deleteLibro(libro.id)"
-              label="Borrar"
-              severity="secondary"
-            />
-            <a routerLink="book-form/{{ libro.id }}" class="p-button font-bold">
-              Editar
-            </a>
-          </div>
-        </ng-template>
-      </p-card>
-      }@empty {
-      <p>No existen libros</p>
-      }
-    </div>
-  </div> -->
-
-  <!-- esto es un comentaio -->
